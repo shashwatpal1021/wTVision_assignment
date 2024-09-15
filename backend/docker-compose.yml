@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app  # Mount your local project to the container for live updates
+    ports:
+      - "8000:8000"  # Map the container's port 8000 to the host's port 8000
+    env_file:
+      - .env  # Use environment variables from .env file
+    depends_on:
+      - db  # Make sure the db service is up before starting the web service
+    stdin_open: true  # Keep STDIN open for development purposes
+    tty: true  # Allocate a pseudo-TTY
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"  # Map the database port for local development
+
+volumes:
+  postgres_data:

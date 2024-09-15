@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"  # Map the container's port 3000 to your host's port 3000
+    volumes:
+      - .:/app        # Mount the current directory inside the container
+      - /app/node_modules  # Avoid overriding the node_modules folder
+    stdin_open: true
+    tty: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true  # Needed for hot-reloading in some systems
