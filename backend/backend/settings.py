@@ -64,11 +64,19 @@ REST_FRAMEWORK = {
     ],
 }
 
+# SIMPLE_JWT = {
+#     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=1),
+#     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+#     'ROTATE_REFRESH_TOKENS': True,
+#     'BLACKLIST_AFTER_ROTATION': True
+# }
+
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=1),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
-    'ROTATE_REFRESH_TOKENS': True,
-    'BLACKLIST_AFTER_ROTATION': True
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),  # Access token validity
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),  # Refresh token validity
+    "ROTATE_REFRESH_TOKENS": True,  # Rotate refresh tokens upon each use
+    "BLACKLIST_AFTER_ROTATION": True,  # Blacklist refresh tokens after rotation
+    "AUTH_HEADER_TYPES": ("Bearer",),
 }
 
 ROOT_URLCONF = 'backend.urls'
