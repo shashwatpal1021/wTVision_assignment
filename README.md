@@ -1,10 +1,5 @@
 # Authentication with React Js and Django
 
-Here's a **README.md** file that includes instructions to set up and run a Django project, install dependencies, replace the PostgreSQL database, and create a superuser:
-
----
-
-## Django Project Setup
 
 This README outlines the steps to set up, install dependencies, configure PostgreSQL, and run the Django project.
 
