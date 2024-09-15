@@ -1,6 +1,5 @@
 # Authentication with React Js and Django
 
-
 This README outlines the steps to set up, install dependencies, configure PostgreSQL, and run the Django project.
 
 #### Prerequisites
